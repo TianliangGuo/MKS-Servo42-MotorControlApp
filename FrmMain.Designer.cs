@@ -172,8 +172,6 @@ namespace MKS_SERVO42C_CONTROL
             this.lblRestore = new System.Windows.Forms.Label();
             this.rtxCmdDisplay = new System.Windows.Forms.RichTextBox();
             this.btnClearDisplay = new System.Windows.Forms.Button();
-            this.btnSwing = new System.Windows.Forms.Button();
-            this.btnStopSWing = new System.Windows.Forms.Button();
             this.grpLinkSetings.SuspendLayout();
             this.grpReadParameters.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1761,40 +1759,12 @@ namespace MKS_SERVO42C_CONTROL
             this.btnClearDisplay.UseVisualStyleBackColor = true;
             this.btnClearDisplay.Click += new System.EventHandler(this.btnClearDisplay_Click);
             // 
-            // btnSwing
-            // 
-            this.btnSwing.Font = new System.Drawing.Font("SimSun", 11F);
-            this.btnSwing.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSwing.Location = new System.Drawing.Point(1341, 703);
-            this.btnSwing.Name = "btnSwing";
-            this.btnSwing.Size = new System.Drawing.Size(82, 27);
-            this.btnSwing.TabIndex = 20;
-            this.btnSwing.Tag = "";
-            this.btnSwing.Text = "震荡";
-            this.btnSwing.UseVisualStyleBackColor = true;
-            this.btnSwing.Click += new System.EventHandler(this.btnSwing_Click);
-            // 
-            // btnStopSWing
-            // 
-            this.btnStopSWing.Font = new System.Drawing.Font("SimSun", 11F);
-            this.btnStopSWing.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnStopSWing.Location = new System.Drawing.Point(1341, 736);
-            this.btnStopSWing.Name = "btnStopSWing";
-            this.btnStopSWing.Size = new System.Drawing.Size(82, 27);
-            this.btnStopSWing.TabIndex = 21;
-            this.btnStopSWing.Tag = "";
-            this.btnStopSWing.Text = "停止";
-            this.btnStopSWing.UseVisualStyleBackColor = true;
-            this.btnStopSWing.Click += new System.EventHandler(this.btnStopSWing_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1454, 831);
-            this.Controls.Add(this.btnStopSWing);
-            this.Controls.Add(this.btnSwing);
             this.Controls.Add(this.rtxCmdDisplay);
             this.Controls.Add(this.lblRestore);
             this.Controls.Add(this.btnRestore);
@@ -2000,8 +1970,6 @@ namespace MKS_SERVO42C_CONTROL
         private System.Windows.Forms.ComboBox cmbMStep2;
         private System.Windows.Forms.RichTextBox rtxCmdDisplay;
         private System.Windows.Forms.Button btnClearDisplay;
-        private System.Windows.Forms.Button btnSwing;
-        private System.Windows.Forms.Button btnStopSWing;
     }
 }
 

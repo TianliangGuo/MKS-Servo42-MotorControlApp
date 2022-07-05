@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKS_SERVO42C_CONTROL", "MKS_SERVO42C_CONTROL\MKS_SERVO42C_CONTROL.csproj", "{C1D8D886-4471-40EE-A817-962D230F5299}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = ".", ".\MKS_SERVO42C_CONTROL.csproj", "{C1D8D886-4471-40EE-A817-962D230F5299}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

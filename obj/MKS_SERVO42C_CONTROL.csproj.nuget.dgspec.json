@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj": {}
+  },
+  "projects": {
+    "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+        "projectName": "MKS_SERVO42C_CONTROL",
+        "projectPath": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+        "packagesPath": "C:\\Users\\peterguo\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\MKSServo42MotorControlApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\peterguo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "NLog": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "NLog/5.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.IO.Compression",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net46/NLog.dll": {}
+        },
+        "runtime": {
+          "lib/net46/NLog.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win": {
+      "NLog/5.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.IO.Compression",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net46/NLog.dll": {}
+        },
+        "runtime": {
+          "lib/net46/NLog.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x64": {
+      "NLog/5.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.IO.Compression",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net46/NLog.dll": {}
+        },
+        "runtime": {
+          "lib/net46/NLog.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x86": {
+      "NLog/5.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Configuration",
+          "System.Core",
+          "System.IO.Compression",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net46/NLog.dll": {}
+        },
+        "runtime": {
+          "lib/net46/NLog.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NLog/5.0.1": {
+      "sha512": "lNErNEPzYiZtUAlgvXpSRxUIPLIDHTLA8pKxkDDV//DCqzwp98FitFemOEmJjIuPvk3GC3ytrQMXsy7P9RTPIw==",
+      "type": "package",
+      "path": "nlog/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "N.png",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/net46/NLog.dll",
+        "lib/net46/NLog.xml",
+        "lib/netstandard1.3/NLog.dll",
+        "lib/netstandard1.3/NLog.xml",
+        "lib/netstandard1.5/NLog.dll",
+        "lib/netstandard1.5/NLog.xml",
+        "lib/netstandard2.0/NLog.dll",
+        "lib/netstandard2.0/NLog.xml",
+        "nlog.5.0.1.nupkg.sha512",
+        "nlog.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "NLog >= 5.0.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\peterguo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+      "projectName": "MKS_SERVO42C_CONTROL",
+      "projectPath": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+      "packagesPath": "C:\\Users\\peterguo\\.nuget\\packages\\",
+      "outputPath": "C:\\git\\MKSServo42MotorControlApp\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\peterguo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "dependencies": {
+          "NLog": {
+            "target": "Package",
+            "version": "[5.0.1, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

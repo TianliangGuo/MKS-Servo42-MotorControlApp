@@ -47,8 +47,6 @@ namespace MKS_SERVO42C_CONTROL
             grpMotorContorl.Enabled = false;
             btnRestore.Enabled = false;
             lblRestore.Enabled = false;
-            btnSwing.Enabled = false;
-            btnStopSWing.Enabled = false;
         }
 
 
@@ -61,8 +59,6 @@ namespace MKS_SERVO42C_CONTROL
             grpMotorContorl.Enabled = true;
             btnRestore.Enabled = true;
             lblRestore.Enabled = true;
-            btnSwing.Enabled = true;
-            btnStopSWing.Enabled = true;
         }
 
 
@@ -1538,43 +1534,6 @@ namespace MKS_SERVO42C_CONTROL
             txtAngleError.Text = String.Empty;
             txtBoardStatus.Text = String.Empty;
             txtLockedFlag.Text = String.Empty;
-        }
-
-
-        int StopFlag = 0;
-
-        private void btnSwing_Click(object sender, EventArgs e)
-        {
-            StopFlag = 1;
-
-            Task.Run(() =>
-            {
-                for (int i = 0; i < 100; i++)
-                {
-                    if (StopFlag == 2)
-                    {
-                        return;
-                    }
-
-                    // 获取速度
-                    var speed = Convert.ToByte(10);
-                    var reverse = SerialPortHelper.Speed(speed, false);
-                    var pulse = Convert.ToUInt32(1800);
-                    var command = SerialPortHelper.BuildSevenBytesCmd(Convert.ToByte("E3", 16), MotorCmd.Rotate, speed, pulse);
-                    SendCmdToSerialPort(command);
-                    Thread.Sleep(1500);
-
-                    command = BuildCmd(MotorCmd.Rotate, reverse, pulse);
-                    SendCmdToSerialPort(command);
-                    Thread.Sleep(1500);
-                }
-            });
-        }
-
-
-        private void btnStopSWing_Click(object sender, EventArgs e)
-        {
-            StopFlag = 2;
         }
     }
 }
