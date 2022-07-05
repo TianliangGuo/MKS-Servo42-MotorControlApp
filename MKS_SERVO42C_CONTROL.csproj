@@ -92,6 +92,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="Resources\MKS.ico" />
   </ItemGroup>
   <ItemGroup>
