@@ -16,6 +16,8 @@ namespace MKS_SERVO42C_CONTROL
 {
     public partial class FrmMain : Form
     {
+        private static readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         SerialPort mySerialPort;
 
         // electric current
@@ -285,7 +287,6 @@ namespace MKS_SERVO42C_CONTROL
                     break;
             }
 
-            /************* 非常重要 *************/
             // switch 后立即复位全局的 MotorCmdFlag
             cmdFlag = MotorCmdFlag.None;
         }
@@ -441,10 +442,6 @@ namespace MKS_SERVO42C_CONTROL
             //
             cmbSpeedGear.SelectedIndex = 9;
             cmbSpeedGear2.SelectedIndex = 9;
-
-
-            btnPowerOnRun.Enabled = false;
-            btnPowerOnStop.Enabled = false;
         }
 
 
@@ -779,6 +776,7 @@ namespace MKS_SERVO42C_CONTROL
 
         #endregion
 
+
         /// <summary>
         /// get motor address
         /// </summary>
@@ -796,7 +794,7 @@ namespace MKS_SERVO42C_CONTROL
         private void MotorStop()
         {
             var command = BuildCmd(MotorCmd.Stop);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -810,7 +808,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             byte mstep = Convert.ToByte(cmbMStep2.Text);
             var command = BuildCmd(MotorCmd.MStep, mstep);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -824,7 +822,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             byte enable = 1;
             var command = BuildCmd(MotorCmd.SetBoardFlag, enable);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -838,7 +836,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             byte disable = 0;
             var command = BuildCmd(MotorCmd.SetBoardFlag, disable);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -852,7 +850,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             byte speed = SerialPortHelper.Speed(cmbSpeedGear.Text, rdoForward.Checked);
             var command = BuildCmd(MotorCmd.Start, speed);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -878,7 +876,7 @@ namespace MKS_SERVO42C_CONTROL
             var command = BuildCmd(MotorCmd.ReadEncoderVal);
             // 发送给串口命令的编号，串口返回数据处理时使用
             cmdFlag = MotorCmdFlag.ReadEncoderVal;
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -892,7 +890,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             var command = BuildCmd(MotorCmd.ReadTotalPulse);
             cmdFlag = MotorCmdFlag.ReadTotalPulse;
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -906,7 +904,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             var command = BuildCmd(MotorCmd.ReadPosition);
             cmdFlag = MotorCmdFlag.ReadPosition;
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -920,7 +918,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             var command = BuildCmd(MotorCmd.ReadAngleError);
             cmdFlag = MotorCmdFlag.ReadAngleError;
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -934,7 +932,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             var command = BuildCmd(MotorCmd.ReadBoardFlag);
             cmdFlag = MotorCmdFlag.ReadBoardFlag;
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -948,7 +946,7 @@ namespace MKS_SERVO42C_CONTROL
         {
             var command = BuildCmd(MotorCmd.ReadBlockFlag);
             cmdFlag = MotorCmdFlag.ReadBlockFlag;
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -986,7 +984,7 @@ namespace MKS_SERVO42C_CONTROL
             }
 
             var command = BuildCmd(MotorCmd.O_Mode, mode);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -999,7 +997,7 @@ namespace MKS_SERVO42C_CONTROL
         private void btnDisableZeroMode_Click(object sender, EventArgs e)
         {
             var command = BuildCmd(MotorCmd.O_Mode, 0); // 关闭自动回零
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1012,7 +1010,7 @@ namespace MKS_SERVO42C_CONTROL
         private void btnSetZeroPos_Click(object sender, EventArgs e)
         {
             var command = BuildCmd(MotorCmd.Set_O, 0);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1027,7 +1025,7 @@ namespace MKS_SERVO42C_CONTROL
             // 读取界面上回零速度
             byte speed = Convert.ToByte(cmbZeroSpeed.Text);
             var command = BuildCmd(MotorCmd.O_Speed, speed);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1056,7 +1054,7 @@ namespace MKS_SERVO42C_CONTROL
             }
 
             var command = BuildCmd(MotorCmd.O_Dir, dir);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1069,7 +1067,7 @@ namespace MKS_SERVO42C_CONTROL
         private void buttonGotoZeroPos_Click(object sender, EventArgs e)
         {
             var command = BuildCmd(MotorCmd.Goto_O, 0);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1096,7 +1094,7 @@ namespace MKS_SERVO42C_CONTROL
             var speed = SerialPortHelper.Speed(cmbSpeedGear2.Text, rdoForward2.Checked);
             var pulse = Convert.ToUInt32(txtPulseCounter.Text);
             var command = BuildCmd(MotorCmd.Rotate, speed, pulse);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1109,7 +1107,7 @@ namespace MKS_SERVO42C_CONTROL
         private void btnRestore_Click(object sender, EventArgs e)
         {
             var command = BuildCmd(MotorCmd.Restore);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1122,7 +1120,7 @@ namespace MKS_SERVO42C_CONTROL
         private void btnCal_Click(object sender, EventArgs e)
         {
             var command = BuildCmd(MotorCmd.Cal, 0);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1143,7 +1141,7 @@ namespace MKS_SERVO42C_CONTROL
             // 获取电流档位           
             byte ma = Convert.ToByte(cmbSetMa.SelectedIndex);
             var command = BuildCmd(MotorCmd.Ma, ma);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1168,7 +1166,7 @@ namespace MKS_SERVO42C_CONTROL
             byte ctrMode = Convert.ToByte(cmbSetEn.SelectedIndex);
 
             var command = BuildCmd(MotorCmd.CtrMode, ctrMode);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1193,7 +1191,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.MotorType, motorType);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
 
         }
@@ -1216,7 +1214,7 @@ namespace MKS_SERVO42C_CONTROL
             byte mstep = Convert.ToByte(cmbSetMa.Text);
             //
             var command = BuildCmd(MotorCmd.MStep, mstep);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1241,7 +1239,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.En, en);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1266,7 +1264,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.Dir, dir);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
 
         }
@@ -1291,7 +1289,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.AutoSDD, autoSDD);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1309,7 +1307,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.Protect, protect);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1327,7 +1325,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.MPlyer, mplyer);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);
         }
 
@@ -1357,7 +1355,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.UartBuad, uartBuad);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
 
         }
@@ -1391,7 +1389,7 @@ namespace MKS_SERVO42C_CONTROL
 
             //
             var command = BuildCmd(MotorCmd.UartAddr, uartAddr);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1399,18 +1397,18 @@ namespace MKS_SERVO42C_CONTROL
         private void btnPowerOnRun_Click(object sender, EventArgs e)
         {
             // 保存上面(2)中所设置的正/反转速度
-            var command = BuildCmd(MotorCmd.Save, 0xC8); // 0xC8 保存
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
-            //SendCmdToSerialPort(command);
+            var command = BuildCmd(MotorCmd.Save, 0xC8); //E0 FF C8 保存
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            SendCmdToSerialPort(command);
         }
 
 
         private void btnPowerOnStop_Click(object sender, EventArgs e)
         {
             // 清除已保存的正/反转速度；
-            var command = BuildCmd(MotorCmd.Save, 0xCA); // 0xCA 清除
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
-            //SendCmdToSerialPort(command);
+            var command = BuildCmd(MotorCmd.Save, 0xCA);  //E0 FF CA 清除
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            SendCmdToSerialPort(command);
         }
 
 
@@ -1420,9 +1418,11 @@ namespace MKS_SERVO42C_CONTROL
              * 注意：PID 参数设置不当，电机可能震动，请谨慎设置参数！！！               
              */
 
+            ushort kpVal = Convert.ToUInt16(cmbSetKP.Text);
+
             //设置位置 Kp 参数。(Kp 默认值为 0x650)            
-            var command = BuildCmd(MotorCmd.PID_Kp, 0x650);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            var command = BuildCmd(MotorCmd.PID_Kp, kpVal);
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1432,10 +1432,11 @@ namespace MKS_SERVO42C_CONTROL
             /*
             * 注意：PID 参数设置不当，电机可能震动，请谨慎设置参数！！！
             */
+            ushort kiVal = Convert.ToUInt16(cmbSetKI.Text);
 
             // 设置位置 Ki 参数。(Ki 默认值为 1)         
-            var command = BuildCmd(MotorCmd.PID_Ki, (ushort)0x1);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            var command = BuildCmd(MotorCmd.PID_Ki, kiVal);
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1446,9 +1447,11 @@ namespace MKS_SERVO42C_CONTROL
              * 注意：PID 参数设置不当，电机可能震动，请谨慎设置参数！！！
              */
 
+            ushort kdVal = Convert.ToUInt16(cmbSetKD.Text);
+
             // 设置位置 Kd 参数。(Kd 默认值为 0x650)   
-            var command = BuildCmd(MotorCmd.PID_Kd, 0x650);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            var command = BuildCmd(MotorCmd.PID_Kd, kdVal);
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1459,9 +1462,11 @@ namespace MKS_SERVO42C_CONTROL
              * 注意： ACC 设置过大，可能损坏驱动板，请谨慎设置参数！！！ 
              */
 
+            ushort accVal = Convert.ToUInt16(cmbSetACC.Text);
+
             //设置 ACC 参数。(ACC 默认值为 0x11E)            
-            var command = BuildCmd(MotorCmd.ACC, 0x11E);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            var command = BuildCmd(MotorCmd.ACC, accVal);
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 
@@ -1472,9 +1477,11 @@ namespace MKS_SERVO42C_CONTROL
              * 注意： MaxT 设置过大，可能损坏驱动板，请谨慎设置参数！！！ 
              */
 
+            ushort maxTVal = Convert.ToUInt16(cmbSetMaxT.Text);
+
             // 设置最大扭矩 MaxT。(MaxT 默认值为 0x4B0), MaxT 取值范围（0 ~ 0x4B0）        
-            var command = BuildCmd(MotorCmd.ACC, 0x4B0);
-            Debug.WriteLine("Send Command: " + SerialPortHelper.BytesToHexStr(command));
+            var command = BuildCmd(MotorCmd.MaxT, maxTVal);
+            logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             //SendCmdToSerialPort(command);
         }
 

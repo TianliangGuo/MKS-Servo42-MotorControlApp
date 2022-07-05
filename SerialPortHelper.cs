@@ -90,18 +90,18 @@ namespace MKS_SERVO42C_CONTROL
             try
             {
                 // 创建串口对象
-                var commPort = new SerialPort(portName, baud);
-                commPort.DataBits = dataBits;
-                commPort.Parity = GetParity(parity);
-                commPort.StopBits = GetStopBits(stopBits);
+                var comPort = new SerialPort(portName, baud);
+                comPort.DataBits = dataBits;
+                comPort.Parity = GetParity(parity);
+                comPort.StopBits = GetStopBits(stopBits);
 
-                commPort.ReadTimeout = 500;
-                commPort.WriteTimeout = 500;
-                commPort.Encoding = Encoding.UTF8;
+                comPort.ReadTimeout = 500;
+                comPort.WriteTimeout = 500;
+                comPort.Encoding = Encoding.UTF8;
 
                 // 打开串口
-                commPort.Open();
-                return commPort;
+                comPort.Open();
+                return comPort;
             }
             catch (Exception ex)
             {
@@ -116,20 +116,20 @@ namespace MKS_SERVO42C_CONTROL
             try
             {
                 // 创建串口对象
-                var commPort = new SerialPort(portSetting.PortName, portSetting.Baud);
-                commPort.DataBits = portSetting.DataBits;
-                commPort.Parity = portSetting.Parity;
-                commPort.StopBits = portSetting.StopBits;
-                commPort.Handshake = portSetting.Handshake;
-                commPort.NewLine = portSetting.NewLine;
+                var comPort = new SerialPort(portSetting.PortName, portSetting.Baud);
+                comPort.DataBits = portSetting.DataBits;
+                comPort.Parity = portSetting.Parity;
+                comPort.StopBits = portSetting.StopBits;
+                comPort.Handshake = portSetting.Handshake;
+                comPort.NewLine = portSetting.NewLine;
 
-                commPort.ReadTimeout = 500;
-                commPort.WriteTimeout = 500;
-                commPort.Encoding = Encoding.UTF8;
+                comPort.ReadTimeout = 500;
+                comPort.WriteTimeout = 500;
+                comPort.Encoding = Encoding.UTF8;
 
                 // 打开串口
-                commPort.Open();
-                return commPort;
+                comPort.Open();
+                return comPort;
             }
             catch (Exception ex)
             {
@@ -142,11 +142,11 @@ namespace MKS_SERVO42C_CONTROL
         /// <summary>
         /// Receive serialport data, Data validation.
         /// </summary>
-        public static byte[] Received(SerialPort commPort, int readIntervalTime = 2)
+        public static byte[] Received(SerialPort comPort, int readIntervalTime = 2)
         {
             try
             {
-                if (commPort.IsOpen)
+                if (comPort.IsOpen)
                 {
                     // 等待串口数据完整接收到缓存
                     Thread.Sleep(readIntervalTime);
@@ -154,12 +154,12 @@ namespace MKS_SERVO42C_CONTROL
                     while (true)
                     {
                         // 查询串口中目前保存了多少数据
-                        int n = commPort.BytesToRead;
+                        int n = comPort.BytesToRead;
                         if (n > 0)
                         {
                             // 读取数据
                             byte[] buffer = new byte[n];
-                            commPort.Read(buffer, 0, n);
+                            comPort.Read(buffer, 0, n);
 
                             // 返回数据
                             string cmdResult = BytesToHexStr(buffer);
@@ -485,6 +485,17 @@ namespace MKS_SERVO42C_CONTROL
                 tmpSpeed = Convert.ToByte(speed | Reversal);
             }
             return tmpSpeed;
+        }
+
+
+        public static byte ReverseSpeed(byte speed)
+        {
+            if (speed > 127 || speed < 0)
+            {
+                throw new ArgumentOutOfRangeException("speed");
+            }
+
+            return Convert.ToByte(speed | Reversal);
         }
 
 
