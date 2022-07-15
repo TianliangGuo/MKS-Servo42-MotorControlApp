@@ -866,7 +866,7 @@ namespace MKS_SERVO42C_CONTROL
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1454, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1448, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1742,7 +1742,7 @@ namespace MKS_SERVO42C_CONTROL
             this.rtxCmdDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.rtxCmdDisplay.Name = "rtxCmdDisplay";
             this.rtxCmdDisplay.ReadOnly = true;
-            this.rtxCmdDisplay.Size = new System.Drawing.Size(1320, 150);
+            this.rtxCmdDisplay.Size = new System.Drawing.Size(1320, 180);
             this.rtxCmdDisplay.TabIndex = 19;
             this.rtxCmdDisplay.Text = "";
             // 
@@ -1764,7 +1764,7 @@ namespace MKS_SERVO42C_CONTROL
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1454, 831);
+            this.ClientSize = new System.Drawing.Size(1448, 861);
             this.Controls.Add(this.rtxCmdDisplay);
             this.Controls.Add(this.lblRestore);
             this.Controls.Add(this.btnRestore);

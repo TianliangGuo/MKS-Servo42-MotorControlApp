@@ -34,13 +34,13 @@ namespace MKS_SERVO42C_CONTROL
         {
             InitializeComponent();
 
-            ButtonDisable();
+            ButtonsDisable();
 
             Control.CheckForIllegalCrossThreadCalls = false;
         }
 
 
-        private void ButtonDisable()
+        private void ButtonsDisable()
         {
             grpReadParameters.Enabled = false;
             grpSysSettings.Enabled = false;
@@ -52,7 +52,7 @@ namespace MKS_SERVO42C_CONTROL
         }
 
 
-        private void ButtonEnable()
+        private void ButtonsEnable()
         {
             grpReadParameters.Enabled = true;
             grpSysSettings.Enabled = true;
@@ -80,20 +80,18 @@ namespace MKS_SERVO42C_CONTROL
 
                 // serialport data receive event
                 mySerialPort.DataReceived += new SerialDataReceivedEventHandler(PortReceivedData);
-            }
-            catch
-            {
-                MessageBox.Show(Text2_Connect, Text1_window);
-            }
-            finally
-            {
-                ButtonEnable();
+
+                ButtonsEnable();
 
                 cmbComName.Enabled = false;
                 cmbBaud.Enabled = false;
                 btnScanCom.Enabled = false;
                 btnOpenCom.Enabled = false;
                 btnCloseCom.Enabled = true;
+            }
+            catch
+            {
+                MessageBox.Show(Text2_Connect, Text1_window);
             }
         }
 
@@ -120,7 +118,7 @@ namespace MKS_SERVO42C_CONTROL
             }
             finally
             {
-                ButtonDisable();
+                ButtonsDisable();
 
                 cmbComName.Enabled = true;
                 cmbBaud.Enabled = true;
@@ -153,7 +151,6 @@ namespace MKS_SERVO42C_CONTROL
             {
                 MessageBox.Show(Text2_Connect, Text1_window);
             }
-
         }
 
 
@@ -1396,7 +1393,7 @@ namespace MKS_SERVO42C_CONTROL
 
         private void btnPowerOnRun_Click(object sender, EventArgs e)
         {
-            // 保存上面(2)中所设置的正/反转速度
+            // 保存所设置的正/反转速度
             var command = BuildCmd(MotorCmd.Save, 0xC8); //E0 FF C8 保存
             logger.Debug("Send Command: " + SerialPortHelper.BytesToHexStr(command));
             SendCmdToSerialPort(command);

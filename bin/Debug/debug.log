@@ -31,3 +31,54 @@
 2022-07-05 11:54:06.3419|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|send command: E1 3E 1F 
 2022-07-05 11:54:06.3489|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|Received: E1 02 E3 
 
+2022-07-06 07:56:51.9238|DEBUG|MKS_SERVO42C_CONTROL.FrmMain|Send Command: E3 F6 05 
+2022-07-06 07:56:51.9517|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|send command: E3 F6 05 DE 
+2022-07-06 07:56:51.9797|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|Received: 00 00 00 E3 01 E4 
+
+2022-07-06 07:57:16.8076|DEBUG|MKS_SERVO42C_CONTROL.FrmMain|Send Command: E3 F7 
+2022-07-06 07:57:16.8076|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|send command: E3 F7 DA 
+2022-07-06 07:57:16.8416|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|Received: E3 01 E4 
+
+2022-07-06 07:58:09.7126|DEBUG|MKS_SERVO42C_CONTROL.FrmMain|Send Command: E3 F6 05 
+2022-07-06 07:58:09.7126|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|send command: E3 F6 05 DE 
+2022-07-06 07:58:09.7806|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|Received: E3 01 E4 
+
+2022-07-06 07:58:16.6043|DEBUG|MKS_SERVO42C_CONTROL.FrmMain|Send Command: E3 F7 
+2022-07-06 07:58:16.6043|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|send command: E3 F7 DA 
+2022-07-06 07:58:16.6183|DEBUG|MKS_SERVO42C_CONTROL.SerialPortHelper|Received: E3 01 E4 
+
+2022-07-15 17:13:36.6181|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
+2022-07-15 17:13:40.9546|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
+2022-07-15 17:14:37.8297|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
+2022-07-15 17:14:40.3563|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
+2022-07-15 17:14:42.5821|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
+2022-07-15 17:15:46.6308|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
+2022-07-15 17:15:52.1379|ERROR|MKS_SERVO42C_CONTROL.SerialPortHelper|System.UnauthorizedAccessException: 对端口“COM8”的访问被拒绝。
+   在 System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   在 System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   在 System.IO.Ports.SerialPort.Open()
+   在 MKS_SERVO42C_CONTROL.SerialPortHelper.Open(String portName, Int32 baud, String parity, Int32 dataBits, String stopBits) 位置 C:\git\MKSServo42MotorControlApp\SerialPortHelper.cs:行号 103
