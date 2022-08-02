@@ -163,6 +163,7 @@ namespace MKS_SERVO42C_CONTROL
                     var cmdReturn = SerialPortHelper.Received(mySerialPort);
                     if (cmdReturn != null)
                     {
+                        
                         string cmdReturnStr = SerialPortHelper.BytesToHexStr(cmdReturn);
                         PrintCmdStr("Received: " + cmdReturnStr + Environment.NewLine);
 

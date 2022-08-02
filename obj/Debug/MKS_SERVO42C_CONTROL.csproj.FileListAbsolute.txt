@@ -12,3 +12,17 @@ C:\git\MKSServo42MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.CoreCompi
 C:\git\MKSServo42MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.CopyComplete
 C:\git\MKSServo42MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.exe
 C:\git\MKSServo42MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.pdb
+C:\git\MKS-Servo42C-MotorControlApp\bin\Debug\NLog.config
+C:\git\MKS-Servo42C-MotorControlApp\bin\Debug\MKS_SERVO42C_CONTROL.exe.config
+C:\git\MKS-Servo42C-MotorControlApp\bin\Debug\MKS_SERVO42C_CONTROL.exe
+C:\git\MKS-Servo42C-MotorControlApp\bin\Debug\MKS_SERVO42C_CONTROL.pdb
+C:\git\MKS-Servo42C-MotorControlApp\bin\Debug\NLog.dll
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.AssemblyReference.cache
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.SuggestedBindingRedirects.cache
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.FrmMain.resources
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.Properties.Resources.resources
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.GenerateResource.cache
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.CoreCompileInputs.cache
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.csproj.CopyComplete
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.exe
+C:\git\MKS-Servo42C-MotorControlApp\obj\Debug\MKS_SERVO42C_CONTROL.pdb

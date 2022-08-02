@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wpv9g4rYZthcH47yT+lWEbgorspy1r2spn4TLognpo+NQf17K7tZZ3OflZOhpprM8fptedNRBnRcmdMwCVm+0g==",
+  "dgSpecHash": "DQ1nbyXwsP6RNm4E/TcN+aa0p3NPYkoruEWWVzGfuOQ72SpRf14ZtYSFYLk9vQDd4E5KgmzHHvXAvdC4TlIJmg==",
   "success": true,
-  "projectFilePath": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+  "projectFilePath": "C:\\git\\MKS-Servo42C-MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\peterguo\\.nuget\\packages\\nlog\\5.0.1\\nlog.5.0.1.nupkg.sha512"
   ],

@@ -142,35 +142,32 @@ namespace MKS_SERVO42C_CONTROL
         /// <summary>
         /// Receive serialport data, Data validation.
         /// </summary>
-        public static byte[] Received(SerialPort comPort, int readIntervalTime = 2)
+        public static byte[] Received(SerialPort comPort, int readIntervalTime = 10)
         {
             try
             {
                 if (comPort.IsOpen)
                 {
-                    // 等待串口数据完整接收到缓存
-                    Thread.Sleep(readIntervalTime);
-
-                    while (true)
+                    // 等待串口数据完整接收
+                    int len = 0;
+                    do
                     {
                         // 查询串口中目前保存了多少数据
-                        int n = comPort.BytesToRead;
-                        if (n > 0)
-                        {
-                            // 读取数据
-                            byte[] buffer = new byte[n];
-                            comPort.Read(buffer, 0, n);
+                        len = comPort.BytesToRead;
+                        Thread.Sleep(readIntervalTime);
 
-                            // 返回数据
-                            string cmdResult = BytesToHexStr(buffer);
-                            _logger.Debug("Received: " + cmdResult + Environment.NewLine);
-                            return buffer;
-                        }
-                        else
-                        {
-                            Thread.Sleep(readIntervalTime);
-                        }
-                    }
+                    } while ((len < comPort.BytesToRead) && (comPort.BytesToRead < 4800));
+
+                    // 读取数据
+                    byte[] buffer = new byte[len];
+                    comPort.Read(buffer, 0, len);
+
+                    // print result to log
+                    string cmdResult = BytesToHexStr(buffer);
+                    _logger.Debug("Received: " + cmdResult + Environment.NewLine);
+
+                    return buffer;
+
                 }
                 else
                 {
@@ -224,27 +221,27 @@ namespace MKS_SERVO42C_CONTROL
         /// <summary>
         /// Serial port send data, automatically add tCHK
         /// </summary>
-        public static string SendCommand(SerialPort commPort, byte[] data, int writeIntervalTime = 1)
+        public static string SendCommand(SerialPort comPort, byte[] command, int writeIntervalTime = 2)
         {
             try
             {
-                //传输数据的前提是端口已打开
-                if (commPort.IsOpen)
+                if (comPort.IsOpen)
                 {
-                    if (data != null)
+                    if (command != null)
                     {
-                        var len = data.Length;
-                        var command = new byte[len + 1];
-                        var tCHK = CalcTCHK(data);
-                        data.CopyTo(command, 0);
-                        command[len] = tCHK;
-                        //
-                        var commandStr = BytesToHexStr(command);
+                        comPort.DiscardInBuffer();
+
+                        // append TCHK
+                        var cmd = AppendTCHK(command);
+
+                        // print command string to log
+                        var commandStr = BytesToHexStr(cmd);
                         _logger.Debug($"send command: {commandStr}");
 
-                        //写数据到串口
-                        commPort.Write(command, 0, command.Length);
+                        //send data to serial port
+                        comPort.Write(cmd, 0, cmd.Length);
                         Thread.Sleep(writeIntervalTime);
+
                         return commandStr;
                     }
                     else
@@ -268,14 +265,14 @@ namespace MKS_SERVO42C_CONTROL
         }
 
 
-        /// <summary>
-        /// Calculate the check code of the sent data
-        /// </summary>
-        /// <param name="bytes"></param>
-        /// <returns></returns>
-        private static byte CalcTCHK(byte[] bytes)
+        private static byte[] AppendTCHK(byte[] command)
         {
-            return SumCheck(bytes, 0, bytes.Length);
+            var len = command.Length;
+            var cmd = new byte[len + 1];
+            var tCHK = SumCheck(command, 0, command.Length);
+            command.CopyTo(cmd, 0);
+            cmd[len] = tCHK;
+            return cmd;
         }
 
 

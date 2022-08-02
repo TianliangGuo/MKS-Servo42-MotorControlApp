@@ -172,6 +172,7 @@ namespace MKS_SERVO42C_CONTROL
             this.lblRestore = new System.Windows.Forms.Label();
             this.rtxCmdDisplay = new System.Windows.Forms.RichTextBox();
             this.btnClearDisplay = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.grpLinkSetings.SuspendLayout();
             this.grpReadParameters.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1759,12 +1760,25 @@ namespace MKS_SERVO42C_CONTROL
             this.btnClearDisplay.UseVisualStyleBackColor = true;
             this.btnClearDisplay.Click += new System.EventHandler(this.btnClearDisplay_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("SimSun", 11F);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(1341, 721);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 27);
+            this.button1.TabIndex = 20;
+            this.button1.Tag = "";
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1448, 861);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rtxCmdDisplay);
             this.Controls.Add(this.lblRestore);
             this.Controls.Add(this.btnRestore);
@@ -1970,6 +1984,7 @@ namespace MKS_SERVO42C_CONTROL
         private System.Windows.Forms.ComboBox cmbMStep2;
         private System.Windows.Forms.RichTextBox rtxCmdDisplay;
         private System.Windows.Forms.Button btnClearDisplay;
+        private System.Windows.Forms.Button button1;
     }
 }
 

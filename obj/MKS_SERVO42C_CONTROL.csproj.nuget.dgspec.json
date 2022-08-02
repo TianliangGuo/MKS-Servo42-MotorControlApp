@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj": {}
+    "C:\\git\\MKS-Servo42C-MotorControlApp\\MKS_SERVO42C_CONTROL.csproj": {}
   },
   "projects": {
-    "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj": {
+    "C:\\git\\MKS-Servo42C-MotorControlApp\\MKS_SERVO42C_CONTROL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+        "projectUniqueName": "C:\\git\\MKS-Servo42C-MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
         "projectName": "MKS_SERVO42C_CONTROL",
-        "projectPath": "C:\\git\\MKSServo42MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
+        "projectPath": "C:\\git\\MKS-Servo42C-MotorControlApp\\MKS_SERVO42C_CONTROL.csproj",
         "packagesPath": "C:\\Users\\peterguo\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\MKSServo42MotorControlApp\\obj\\",
+        "outputPath": "C:\\git\\MKS-Servo42C-MotorControlApp\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
